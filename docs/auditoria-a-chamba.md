@@ -1,6 +1,6 @@
 # Auditoría a Chamba Maura Elkin Jair (Lista 28)
 
-Auditor: Yadaicela Ullaguari Andres Renato (Lista 29)
+Auditor: Yadaicela Uyaguari Andres Renato (Lista 29)
 Cadena indicada en clase: el 28 me envía su repositorio, yo lo evalúo y le devuelvo el informe.
 Ficha auditada (N.º 28): Clínica veterinaria | Fecha y hora de reserva | 720 px | Acordeón accesible con details y summary, sin JavaScript
 

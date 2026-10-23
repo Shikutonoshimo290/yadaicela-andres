@@ -1,5 +1,5 @@
 # Ficha 29
-**Estudiante:** Yadaicela Ullaguari Andres Renato
+**Estudiante:** Yadaicela Uyaguari Andres Renato
 
 | N.º | Temática | Campo especial | Breakpoint | Restricción |
 |---|---|---|---|---|
