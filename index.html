@@ -37,6 +37,37 @@
 <h2>Horarios</h2>
 <p>Lunes a viernes 9 a 18</p>
 </aside>
+<section id="registro">
+<h2>Registro</h2>
+<form action="#" method="post" enctype="multipart/form-data">
+<fieldset>
+<legend>Datos del vecino</legend>
+<div class="campo">
+<label for="nombre">Nombre completo</label>
+<input id="nombre" name="nombre" type="text" required minlength="3">
+</div>
+<div class="campo">
+<label for="cedula">Cédula</label>
+<input id="cedula" name="cedula" type="text" inputmode="numeric" required pattern="[0-9]{10}" aria-describedby="ayuda-cedula">
+<p id="ayuda-cedula" class="ayuda">10 dígitos sin guiones.</p>
+</div>
+<div class="campo">
+<label for="correo">Correo</label>
+<input id="correo" name="correo" type="email" required>
+</div>
+<div class="campo">
+<label for="edad">Edad</label>
+<input id="edad" name="edad" type="number" required min="5" max="110">
+</div>
+<div class="campo">
+<label for="documento">Copia de cédula (PDF o imagen)</label>
+<input id="documento" name="documento" type="file" required accept=".pdf,.jpg,.jpeg,.png" aria-describedby="ayuda-archivo">
+<p id="ayuda-archivo" class="ayuda">Solo PDF, JPG o PNG.</p>
+</div>
+</fieldset>
+<button type="submit">Solicitar carnet</button>
+</form>
+</section>
 </main>
 <footer class="pie"><p>2026 Biblioteca Barrial</p></footer>
 </body>
