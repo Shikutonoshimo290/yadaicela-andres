@@ -31,8 +31,10 @@
 | 8 | Accesibilidad: Skip-link | No encontrado | **NO CUMPLE:** No hay enlace "Saltar al contenido" al inicio del body. Es obligatorio para accesibilidad. | WCAG 2.2 Criterio 2.4.1 | `docs/evidencias/hallazgo-8-skip.png` | Alta |
 | 9 | Accesibilidad: Contraste | `css/estilos.css`, línea 3 | **CUMPLE APENAS:** El color primario #008392 sobre fondo blanco tiene un contraste de ~4.6:1. Cumple el mínimo de 4.5:1 pero está en el límite. | WCAG 2.2 Criterio 1.4.3 | `docs/evidencias/hallazgo-9-contraste.png` | Baja |
 | 10 | Accesibilidad: Foco visible | `css/estilos.css`, líneas 67-71 | **CUMPLE:** Tiene `outline: 3px solid var(--color-foco)` con outline-offset. El foco es claramente visible. | WCAG 2.2 Criterio 2.4.7 | `docs/evidencias/hallazgo-10-foco.png` | N/A |
-| 11 | Imágenes: Alt descriptivo | `index.html`, línea 56 | **NO CUMPLE:** El alt dice "Logotipo principal" pero la imagen parece ser una foto del edificio. El alt debe describir el contenido real. | WCAG 2.2 Criterio 1.1.1 | `docs/evidencias/hallazgo-11-alt.png` | Media |
+| 11 | Imágenes: alt de imagen con texto visible | `index.html`, línea 56 | **CUMPLE PARCIALMENTE:** El alt identifica el logotipo, pero la imagen contiene texto visible ("VETERINARY"). WCAG 1.1.1 pide que el alt de una imagen con texto incluya ese texto o su equivalente, por ejemplo: "Logotipo de VeterinaryFlow: casa con cruz, siluetas de gato y perro, texto VETERINARY" | WCAG 2.2 Criterio 1.1.1 | `evidencias/hallazgo-11-alt.png` | Baja |
 
 ---
+
+**Nota:** Evidencias de los hallazgos 1 a 11 agregadas el 24 de octubre de 2026 tras verificación en vivo de la página del compañero. Hallazgo 11 reencuadrado tras confirmar que la imagen es el logotipo con texto visible.
 
 **Auditor:** Yadaicela Uyaguari Andres Renato
