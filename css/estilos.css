@@ -1,44 +1,257 @@
+/* =========================================
+   1. VARIABLES CSS Y CONTRASTE WCAG 2.2 AA
+   ========================================= */
 :root {
---color-fondo: #fdfcf9;
---color-texto: #1b1f27;
---color-primario: #1e4620;
---color-foco: #0b5fff;
+    --color-fondo: #fdfcf9;
+    --color-texto: #1b1f27;
+    --color-primario: #1e4620;
+    --color-superficie: #ffffff;
+    --color-borde: #767676;
+    --color-foco: #0b5fff;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: system-ui, sans-serif; background: var(--color-fondo); color: var(--color-texto); }
-.skip-link { position: absolute; left: -9999px; background: var(--color-primario); color: white; padding: 0.5rem; }
-.skip-link:focus { left: 1rem; top: 1rem; }
-:focus-visible { outline: 3px solid var(--color-foco); outline-offset: 2px; }
-.cabecera { background: var(--color-primario); color: white; padding: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
-.menu { list-style: none; display: flex; gap: 1rem; }
-.menu a { color: white; text-decoration: underline; min-height: 44px; display: inline-block; }
 
-.contenedor-principal { max-width: 1200px; margin: 0 auto; padding: 1rem; display: grid; grid-template-columns: 1fr; gap: 1rem; }
+/* =========================================
+   2. RESET Y ESTILOS BASE
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* =========================================
+   3. ACCESIBILIDAD DE TECLADO Y FOCO
+   ========================================= */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    background: var(--color-primario);
+    color: var(--color-superficie);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-foco);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   4. CABECERA Y NAVEGACIÓN (FLEXBOX)
+   ========================================= */
+.cabecera {
+    background: var(--color-primario);
+    color: var(--color-superficie);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.menu a {
+    color: var(--color-superficie);
+    text-decoration: underline;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+}
+
+/* =========================================
+   5. LAYOUT PRINCIPAL (GRID Y BREAKPOINT 1024PX)
+   ========================================= */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
 @media (min-width: 1024px) {
-.contenedor-principal { grid-template-columns: 2fr 1fr; }
-#catalogo { grid-column: span 2; }
-#horarios { grid-column: 2 / 3; grid-row: 2 / 4; }
-}
-section, aside { background: white; border: 1px solid #767676; border-radius: 0.5rem; padding: 1rem; }
-h2 { color: var(--color-primario); margin-bottom: 0.5rem; }
-table { width: 100%; border-collapse: collapse; }
-th, td { border: 1px solid #767676; padding: 0.5rem; }
-thead th { background: var(--color-primario); color: white; }
-@media (max-width: 480px) {
-th, td { padding: 0.25rem; font-size: 0.85rem; }
-}
-fieldset { border: 1px solid #767676; border-radius: 0.5rem; padding: 1rem; }
-legend { font-weight: bold; }
-.campo { margin-bottom: 1rem; }
-label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
-input { width: 100%; min-height: 44px; padding: 0.5rem; border: 1px solid #767676; border-radius: 0.25rem; }
-.ayuda { font-size: 0.9rem; margin-top: 0.25rem; }
-button { min-height: 44px; padding: 0.6rem 1.25rem; background: var(--color-primario); color: white; border: none; cursor: pointer; }
-.pie { background: var(--color-primario); color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+    .contenedor-principal {
+        grid-template-columns: 2fr 1fr;
+    }
 
+    #catalogo {
+        grid-column: span 2;
+    }
+
+    #horarios {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+    }
+}
+
+/* =========================================
+   6. SECCIONES, IMAGEN Y TABLA DE DATOS
+   ========================================= */
+section,
+aside {
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+h2 {
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+}
+
+caption {
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+th,
+td {
+    border: 1px solid var(--color-borde);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+thead th {
+    background: var(--color-primario);
+    color: var(--color-superficie);
+}
+
+tbody th {
+    background: var(--color-fondo);
+}
+
+@media (max-width: 480px) {
+    th,
+    td {
+        padding: 0.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* =========================================
+   7. FORMULARIO ACCESIBLE
+   ========================================= */
+fieldset {
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 0.25rem;
+    background: var(--color-superficie);
+    color: var(--color-texto);
+}
+
+.ayuda {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+button {
+    min-height: 44px;
+    padding: 0.6rem 1.25rem;
+    background: var(--color-primario);
+    color: var(--color-superficie);
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pie {
+    background: var(--color-primario);
+    color: var(--color-superficie);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* =========================================
+   8. ESTILOS DE IMPRESIÓN (FICHA 29)
+   ========================================= */
 @media print {
-nav, .skip-link, #registro, form { display: none !important; }
-body { background: white; color: black; }
-.contenedor-principal { display: block; }
-section, aside { border: 1px solid black; page-break-inside: avoid; }
+    nav,
+    .skip-link,
+    #registro,
+    form {
+        display: none !important;
+    }
+
+    body {
+        background: var(--color-superficie);
+        color: var(--color-texto);
+    }
+
+    .contenedor-principal {
+        display: block;
+    }
+
+    section,
+    aside {
+        border: 1px solid var(--color-texto);
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
 }
