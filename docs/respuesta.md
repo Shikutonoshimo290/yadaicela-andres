@@ -1,0 +1,27 @@
+# Respuesta a la Auditoría y Correcciones – Parte 3
+
+- **Estudiante auditado (Autor):** Yadaicela Uyaguari Andres Renato (Lista N.º 29)
+- **Compañero auditor:** Abril Landin Juan Jose (Lista N.º 1)
+- **Ficha evaluada:** N.º 29 – Biblioteca barrial | Carga de archivo con tipos restringidos | Breakpoint 1024 px | Hoja de estilos para impresión que oculte la navegación y el formulario.
+
+---
+
+## 1. Respuesta hallazgo por hallazgo al informe recibido
+
+En la tabla de los 11 requisitos (Base 1 a Base 8 y Específicos 1 a 3), el auditor determinó que el código **cumple con todos los requisitos** y registró **0 errores** en los validadores oficiales de HTML y CSS del W3C. Al final del informe incluyó dos observaciones de estilo de código (indentación y comentarios), a las cuales respondo a continuación:
+
+| N.º de hallazgo | Decisión (acepta o refuta) | Justificación con la norma | Evidencia antes y después | Commit |
+| :--- | :--- | :--- | :--- | :--- |
+| **Observación 1:** Aplicar indentación (sangría) en HTML y CSS | **Refuta como incumplimiento normativo / Acepta como mejora de legibilidad** | **Sustento en la norma:** Según la especificación **WHATWG HTML Living Standard (Sección 13.1 *Writing HTML documents - Syntax*)** y **W3C CSS Syntax Module Level 3**, los espacios en blanco y saltos de línea (indentación) entre etiquetas o declaraciones son caracteres de formato opcionales que el parser ignora al construir el DOM y el CSSOM (como demostró la propia captura del auditor en el validador W3C con 0 errores). Sin embargo, **se acepta la recomendación** de buenas prácticas de ingeniería para facilitar la lectura humana del árbol jerárquico y se aplica sangría de 4 espacios en todo `index.html` y `css/estilos.css`. | **Antes:** `evidencias/antes-indentacion.png` <br> **Después:** `evidencias/despues-indentacion.png` y `evidencias/despues-css.png` | `Parte 3: Aplicar sangria, comentarios y th scope row en tabla de index.html` |
+| **Observación 2:** Agregar comentarios en el código | **Refuta como incumplimiento normativo / Acepta como mejora de mantenimiento** | **Sustento en la norma:** Ni la especificación **WHATWG HTML (Sección 13.1.6 *Comments*)** ni **WCAG 2.2** exigen comentarios `<!-- -->` o `/* */` para la validez semántica o la accesibilidad, ya que los comentarios no se exponen en el árbol de accesibilidad del navegador. No obstante, **se acepta e implementa la mejora** documentando cada sección semántica en `index.html` y numerando los 8 bloques lógicos en `css/estilos.css`. | **Antes:** `evidencias/ValidacionYadaicelaHTML.png` <br> **Después:** `evidencias/despues-indentacion.png` y `evidencias/despues-css.png` | `Parte 3: Identar CSS, documentar bloques y unificar colores en variables --color` |
+
+---
+
+## 2. Problemas adicionales detectados y corregidos por cuenta propia (No detectados por el auditor)
+
+Cumpliendo con el requisito de la Parte 3 de buscar y corregir al menos dos problemas técnicos que el auditor no detectó durante su revisión:
+
+| N.º | Problema detectado que el auditor no vio | Ubicación | Decisión y justificación con la norma | Evidencia antes y después | Commit |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Adicional 1** | Los códigos identificadores de cada libro en las filas del cuerpo de la tabla (`LIB-01` y `LIB-02`) estaban marcados con `<td>` en lugar de `<th scope="row">`, y las secciones carecían de `aria-labelledby` vinculado a su `<h2>`. | `index.html`, líneas de la tabla y etiquetas `<section>` / `<aside>` | **Corregido:** Según la especificación **WHATWG HTML (Sección 4.9.10 *The `th` element*)** y **WCAG 2.2 Criterio 1.3.1 (Información y relaciones - Nivel A)**, cuando la primera celda de cada fila en `<tbody>` identifica a toda la fila, debe declararse como `<th scope="row">` para que el lector de pantalla asocie el código del libro con su título y estado. Además, se añadió `aria-labelledby` en cada `<section>` y `<aside>` apuntando al `id` de su `<h2>` para nombrar las regiones en el árbol de accesibilidad. | **Antes:** En la tabla del informe recibido se observa `<tr><td>LIB-01</td>...` <br> **Después:** `evidencias/despues-indentacion.png` con `<th scope="row">LIB-01</th>` | `Parte 3: Aplicar sangria, comentarios y th scope row en tabla de index.html` |
+| **Adicional 2** | Varios colores en la hoja de estilos estaban escritos con valores literales fijos (`white`, `black`, `#767676`) en lugar de utilizar variables CSS definidas en `:root`. | `css/estilos.css`, reglas de `.skip-link`, `.cabecera`, `.menu a`, `section/aside`, `th/td`, `button` y `.pie` | **Corregido:** El **Requisito Base 5** de la práctica exige explícitamente *"Colores definidos como variables CSS (`--color-...`) con contraste mínimo de 4.5:1"*, respaldado por la especificación **W3C CSS Custom Properties for Cascading Variables Module Level 1**. Se agregaron `--color-superficie: #ffffff;` y `--color-borde: #767676;` (que cumple contraste 4.54:1 sobre blanco según WCAG 2.2 Criterio 1.4.3 y 1.4.11) y se reemplazaron todos los valores fijos por `var(--color-...)`. | **Antes:** En `evidencias/abril-evidencia-print.png` se observa `background: white; color: black;` <br> **Después:** `evidencias/despues-css.png` usando variables CSS | `Parte 3: Identar CSS, documentar bloques y unificar colores en variables --color` |
