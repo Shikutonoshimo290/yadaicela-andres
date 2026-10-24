@@ -1,78 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblioteca Barrial El Vecino</title>
-<link rel="stylesheet" href="css/estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Barrial El Vecino</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
-<header class="cabecera">
-<h1>Biblioteca Barrial El Vecino</h1>
-<nav aria-label="Principal">
-<ul class="menu">
-<li><a href="#catalogo">Catálogo</a></li>
-<li><a href="#registro">Registro</a></li>
-</ul>
-</nav>
-</header>
-<main id="contenido" class="contenedor-principal">
-<section id="catalogo">
-<h2>Catálogo</h2>
-<figure>
-<img src="img/biblioteca.svg" alt="Estantería con libros de la biblioteca barrial" width="320" height="160">
-<figcaption>Espacio de lectura de nuestra sede barrial.</figcaption>
-</figure>
-<table>
-<caption>Libros disponibles</caption>
-<thead><tr><th scope="col">Código</th><th scope="col">Título</th><th scope="col">Estado</th></tr></thead>
-<tbody>
-<tr><td>LIB-01</td><td>Cien años de soledad</td><td>Disponible</td></tr>
-<tr><td>LIB-02</td><td>El principito</td><td>Prestado</td></tr>
-</tbody>
-</table>
-</section>
-<section id="servicios">
-<h2>Servicios</h2>
-<article><h3>Préstamo</h3><p>Lleva 2 libros por 15 días.</p></article>
-</section>
-<aside id="horarios">
-<h2>Horarios</h2>
-<p>Lunes a viernes 9 a 18</p>
-</aside>
-<section id="registro">
-<h2>Registro</h2>
-<form action="#" method="post" enctype="multipart/form-data">
-<fieldset>
-<legend>Datos del vecino</legend>
-<div class="campo">
-<label for="nombre">Nombre completo</label>
-<input id="nombre" name="nombre" type="text" required minlength="3">
-</div>
-<div class="campo">
-<label for="cedula">Cédula</label>
-<input id="cedula" name="cedula" type="text" inputmode="numeric" required pattern="[0-9]{10}" aria-describedby="ayuda-cedula">
-<p id="ayuda-cedula" class="ayuda">10 dígitos sin guiones.</p>
-</div>
-<div class="campo">
-<label for="correo">Correo</label>
-<input id="correo" name="correo" type="email" required>
-</div>
-<div class="campo">
-<label for="edad">Edad</label>
-<input id="edad" name="edad" type="number" required min="5" max="110">
-</div>
-<div class="campo">
-<label for="documento">Copia de cédula (PDF o imagen)</label>
-<input id="documento" name="documento" type="file" required accept=".pdf,.jpg,.jpeg,.png" aria-describedby="ayuda-archivo">
-<p id="ayuda-archivo" class="ayuda">Solo PDF, JPG o PNG.</p>
-</div>
-</fieldset>
-<button type="submit">Solicitar carnet</button>
-</form>
-</section>
-</main>
-<footer class="pie"><p>2026 Biblioteca Barrial</p></footer>
+
+    <!-- Enlace de salto para accesibilidad por teclado (WCAG 2.4.1) -->
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Encabezado principal y navegación -->
+    <header class="cabecera">
+        <h1>Biblioteca Barrial El Vecino</h1>
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#registro">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal maquetado con CSS Grid -->
+    <main id="contenido" class="contenedor-principal">
+
+        <!-- Sección 1: Catálogo e inventario en tabla accesible -->
+        <section id="catalogo" aria-labelledby="titulo-catalogo">
+            <h2 id="titulo-catalogo">Catálogo</h2>
+            <figure>
+                <img src="img/biblioteca.svg" alt="Estantería con libros de la biblioteca barrial" width="320" height="160">
+                <figcaption>Espacio de lectura de nuestra sede barrial.</figcaption>
+            </figure>
+            <table>
+                <caption>Libros disponibles</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">LIB-01</th>
+                        <td>Cien años de soledad</td>
+                        <td>Disponible</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">LIB-02</th>
+                        <td>El principito</td>
+                        <td>Prestado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Sección 2: Servicios comunitarios -->
+        <section id="servicios" aria-labelledby="titulo-servicios">
+            <h2 id="titulo-servicios">Servicios</h2>
+            <article>
+                <h3>Préstamo</h3>
+                <p>Lleva 2 libros por 15 días presentando tu carnet barrial.</p>
+            </article>
+        </section>
+
+        <!-- Información complementaria: Horarios de atención -->
+        <aside id="horarios" aria-labelledby="titulo-horarios">
+            <h2 id="titulo-horarios">Horarios</h2>
+            <p>Lunes a viernes: 09:00 a 18:00</p>
+            <p>Sábados: 09:00 a 13:00</p>
+        </aside>
+
+        <!-- Sección 3: Formulario de registro con carga de archivo restringida (Ficha 29) -->
+        <section id="registro" aria-labelledby="titulo-registro">
+            <h2 id="titulo-registro">Registro</h2>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Datos del vecino</legend>
+
+                    <div class="campo">
+                        <label for="nombre">Nombre completo</label>
+                        <input id="nombre" name="nombre" type="text" required minlength="3" autocomplete="name">
+                    </div>
+
+                    <div class="campo">
+                        <label for="cedula">Cédula</label>
+                        <input id="cedula" name="cedula" type="text" inputmode="numeric" required pattern="[0-9]{10}" aria-describedby="ayuda-cedula">
+                        <p id="ayuda-cedula" class="ayuda">10 dígitos sin guiones.</p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correo">Correo</label>
+                        <input id="correo" name="correo" type="email" required autocomplete="email">
+                    </div>
+
+                    <div class="campo">
+                        <label for="edad">Edad</label>
+                        <input id="edad" name="edad" type="number" required min="5" max="110">
+                    </div>
+
+                    <div class="campo">
+                        <label for="documento">Copia de cédula (PDF o imagen)</label>
+                        <input id="documento" name="documento" type="file" required accept=".pdf,.jpg,.jpeg,.png" aria-describedby="ayuda-archivo">
+                        <p id="ayuda-archivo" class="ayuda">Solo PDF, JPG o PNG.</p>
+                    </div>
+                </fieldset>
+                <button type="submit">Solicitar carnet</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie">
+        <p>&copy; 2026 Biblioteca Barrial El Vecino</p>
+    </footer>
+
 </body>
 </html>
